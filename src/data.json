@@ -6,46 +6,52 @@
       "gender": ["женский"],
       "price": 800,
       "type": "стрижка",
-      "img": "./assets/photo.jpg" 
+      "img": "https://picsum.photos/id/548/300/230"
    },
    { "id": 2,
       "title": "Женская стрижка на волосы средней длины",
       "description": "длина волос от 15 до 30 см",
       "gender": ["женский"],
       "price": 700,
-      "type": "стрижка" 
+      "type": "стрижка",
+      "img": "https://picsum.photos/id/550/300/230"
    },
    {  "id": 3,
       "title": "Мытье волос",
       "gender": ["женский", "мужской"],
       "price": 100,
-      "type": "уход" 
+      "type": "уход",
+      "img": "https://picsum.photos/id/628/300/230" 
    },
    { "id": 4,
       "title": "Женская стрижка на короткие волосы",
       "description": "длина волос до 15 см",
       "gender": ["женский"],
       "price": 600,
-      "type": "стрижка" 
+      "type": "стрижка",
+      "img": "https://picsum.photos/id/64/300/230"  
    },
    { "id": 5,
       "title": "Женская стрижка горячими ножницами",
       "gender": ["женский"],
       "price": 500,
-      "type": "стрижка" 
+      "type": "стрижка",
+      "img": "https://picsum.photos/id/633/300/230" 
    },
    { "id": 6,
       "title": "Мужская модельная стрижка",
       "description": "description",
       "gender": ["мужской"],
       "price": 800,
-      "type": "стрижка" 
+      "type": "стрижка",
+      "img": "https://picsum.photos/id/1011/300/230"  
    },
    { "id": 7,
       "title": "Укладка волос",
       "gender": ["женский", "мужской"],
       "price": 100,
-      "type": "стайлинг" 
+      "type": "стайлинг",
+      "img": "https://picsum.photos/id/1005/300/230"  
    }
   ]
 }
