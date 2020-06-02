@@ -15,7 +15,6 @@ const App = ({ listLoad, listData }) => {
     setShow(true)
     setIdModal(id)
   }
-  console.log(listData[idModal])
 
   useEffect(() => {
     listLoad()
