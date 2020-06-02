@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { Form, Badge } from 'react-bootstrap'
 import './../App.scss'
+import { filterAllValue } from './../actions/filter'
 
-const Filter = () => {
+const Filter = ({filterAllValue}) => {
+  const [filterValue, setFilterValue] = useState('')
+
+  const onChangeValue = e => {
+    const filterValue = e.target.value
+    setFilterValue(filterValue)
+    filterAllValue(filterValue)
+  }
+  
   return (
     <div className="filter">
       <Form className="filter__input">
-        <Form.Control type="text" size="lg" custom="true" placeholder="найти" />
+        <Form.Control
+          type="text"
+          size="lg"
+          custom="true"
+          placeholder="найти"
+          value={filterValue}
+          onChange={onChangeValue}
+        />
       </Form>
       <div className="filter__value">
         <h1 className="filter__value-title">Быстрый поиск по категориям</h1>
@@ -55,4 +72,7 @@ const Filter = () => {
   )
 }
 
-export default Filter
+const mapDispatchToProps = dispatch => ({
+  filterAllValue: filterValue => dispatch(filterAllValue(filterValue))
+})
+export default connect(null, mapDispatchToProps)(Filter)

@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import listReducer from './reducers/list'
+import { rootReducer } from './reducers'
 
-export const store = createStore(listReducer, composeWithDevTools())
+export const store = createStore(rootReducer, composeWithDevTools())

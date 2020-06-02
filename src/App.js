@@ -5,8 +5,10 @@ import List from './components/list'
 import Details from './components/details'
 import Filter from './components/filter'
 import { listLoad } from './actions/list'
+import { getFilteredValue } from './selectors'
 
-const App = ({ listLoad, listData }) => {
+const App = ({ listLoad, listData, filteredValue }) => {
+  console.log('filteredValue', filteredValue)
   const [show, setShow] = useState(false)
   const [idModal, setIdModal] = useState()
   const handleClose = () => setShow(false)
@@ -23,19 +25,20 @@ const App = ({ listLoad, listData }) => {
   return (
     <div className="app">
       <Filter />
-      {listData.map(({ id, title, description, img }) => {
-        return (
-          <div key={id}>
-            <List
-              id={id}
-              handleShow={handleShow}
-              title={title}
-              description={description}
-              img={img}
-            />
-          </div>
-        )
-      })}
+      {filteredValue.list &&
+        filteredValue.list.map(({ id, title, description, img }) => {
+          return (
+            <div key={id}>
+              <List
+                id={id}
+                handleShow={handleShow}
+                title={title}
+                description={description}
+                img={img}
+              />
+            </div>
+          )
+        })}
       <Details
         idModal={idModal}
         handleClose={handleClose}
@@ -46,6 +49,9 @@ const App = ({ listLoad, listData }) => {
   )
 }
 
-const mapStateToProps = state => ({ listData: state.list })
+const mapStateToProps = state => ({
+  listData: state.list.list,
+  filteredValue: getFilteredValue(state)
+})
 
 export default connect(mapStateToProps, { listLoad })(App)
