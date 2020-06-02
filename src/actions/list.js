@@ -1,6 +1,9 @@
-import { LIST_LOAD } from "../types"
+import { LIST_LOAD } from '../types'
+import * as data from './../data.json'
 
-export const listLoad = (list) => ({
+const list = data.list
+
+export const listLoad = () => ({
   type: LIST_LOAD,
-  payload: list,
+  payload: list
 })
