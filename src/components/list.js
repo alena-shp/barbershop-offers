@@ -5,12 +5,12 @@ import './../App.scss'
 const List = ({ id, title, description, img, handleShow }) => {
   return (
     <div className="list">
-      <Card bsPrefix="list__item" key={id}>
+      <Card bsPrefix="list__item">
         <Card.Img src={img} bsPrefix="list__img" />
         <Card.Body bsPrefix="list__body">
           <Card.Title>{title}</Card.Title>
           <Card.Text>{description}</Card.Text>
-          <Button variant="primary" onClick={handleShow}>
+          <Button variant="primary" onClick={() => handleShow(id)}>
             Подробнее
           </Button>
         </Card.Body>

@@ -8,9 +8,14 @@ import { listLoad } from './actions/list'
 
 const App = ({ listLoad, listData }) => {
   const [show, setShow] = useState(false)
+  const [idModal, setIdModal] = useState()
   const handleClose = () => setShow(false)
 
-  const handleShow = () => setShow(true)
+  const handleShow = id => {
+    setShow(true)
+    setIdModal(id)
+  }
+  console.log(listData[idModal])
 
   useEffect(() => {
     listLoad()
@@ -19,25 +24,25 @@ const App = ({ listLoad, listData }) => {
   return (
     <div className="app">
       <Filter />
-      {listData.map(({ id, title, description, gender, price, type, img }) => {
+      {listData.map(({ id, title, description, img }) => {
         return (
           <div key={id}>
             <List
+              id={id}
               handleShow={handleShow}
               title={title}
               description={description}
               img={img}
             />
-            <Details
-              handleClose={handleClose}
-              show={show}
-              gender={gender}
-              price={price}
-              type={type}
-            />
           </div>
         )
       })}
+      <Details
+        idModal={idModal}
+        handleClose={handleClose}
+        show={show}
+        dataDetails={listData[idModal]}
+      />
     </div>
   )
 }
