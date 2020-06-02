@@ -8,7 +8,6 @@ import { listLoad } from './actions/list'
 import { getFilteredValue } from './selectors'
 
 const App = ({ listLoad, listData, filteredValue }) => {
-  console.log('filteredValue', filteredValue)
   const [show, setShow] = useState(false)
   const [idModal, setIdModal] = useState()
   const handleClose = () => setShow(false)
@@ -25,8 +24,8 @@ const App = ({ listLoad, listData, filteredValue }) => {
   return (
     <div className="app">
       <Filter />
-      {filteredValue.list &&
-        filteredValue.list.map(({ id, title, description, img }) => {
+      {filteredValue &&
+        filteredValue.map(({ id, title, description, img }) => {
           return (
             <div key={id}>
               <List
@@ -50,7 +49,7 @@ const App = ({ listLoad, listData, filteredValue }) => {
 }
 
 const mapStateToProps = state => ({
-  listData: state.list.list,
+  listData: state.list,
   filteredValue: getFilteredValue(state)
 })
 
