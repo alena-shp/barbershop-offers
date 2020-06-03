@@ -1,18 +1,37 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Form, Badge } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import './../App.scss'
-import { filterAllValue } from './../actions/filter'
+import {
+  setFilterAll,
+  setFilterGender,
+  setFilterType,
+  setFilterPrice
+} from './../actions/filter'
 
-const Filter = ({filterAllValue}) => {
+const MALE = 'мужской'
+const FEMALE = 'женский'
+const HAIRSTYLE = 'стрижка'
+const STYLING = 'стайлинг'
+const CARE = 'уход'
+const CHEAP = 500
+const MIDDLE = 1000
+const EXPENSIVE = 2000
+
+const Filter = ({
+  setFilterAll,
+  setFilterGender,
+  setFilterType,
+  setFilterPrice
+}) => {
   const [filterValue, setFilterValue] = useState('')
 
   const onChangeValue = e => {
     const filterValue = e.target.value
     setFilterValue(filterValue)
-    filterAllValue(filterValue)
+    setFilterAll(filterValue)
   }
-  
+
   return (
     <div className="filter">
       <Form className="filter__input">
@@ -30,41 +49,80 @@ const Filter = ({filterAllValue}) => {
         <div className="filter__item">
           <h3 className="filter__items-title">Пол</h3>
           <div className="filter__item-point">
-            <Badge pill="true" variant="primary">
-              {' '}
+            <Button
+              variant="outline-success"
+              onClick={() => {
+                setFilterGender(MALE)
+              }}
+            >
               Мужской
-            </Badge>
-            <Badge pill variant="danger">
+            </Button>
+            <Button
+              variant="outline-success"
+              onClick={() => {
+                setFilterGender(FEMALE)
+              }}
+            >
               Женский
-            </Badge>
+            </Button>
           </div>
         </div>
         <div className="filter__item">
           <h3 className="filter__items-title">Тип услуги</h3>
           <div className="filter__item-point">
-            <Badge pill variant="success">
+            <Button
+              variant="outline-danger"
+              onClick={() => {
+                setFilterType(HAIRSTYLE)
+              }}
+            >
               Стрижки
-            </Badge>
-            <Badge pill variant="warning">
+            </Button>
+            <Button
+              variant="outline-danger"
+              onClick={() => {
+                setFilterType(STYLING)
+              }}
+            >
               Стайлинг
-            </Badge>
-            <Badge pill variant="light">
+            </Button>
+            <Button
+              variant="outline-danger"
+              onClick={() => {
+                setFilterType(CARE)
+              }}
+            >
               Уход
-            </Badge>
+            </Button>
           </div>
         </div>
         <div className="filter__item">
           <h3 className="filter__items-title">Цена</h3>
           <div className="filter__item-point">
-            <Badge pill variant="dark">
+            <Button
+              variant="outline-primary"
+              onClick={() => {
+                setFilterPrice(CHEAP)
+              }}
+            >
               до 500 рублей
-            </Badge>
-            <Badge pill variant="dark">
-              от 500 до 1000 рублей
-            </Badge>
-            <Badge pill variant="dark">
-              от 1000 рублей
-            </Badge>
+            </Button>
+            <Button
+              variant="outline-primary"
+              onClick={() => {
+                setFilterPrice(MIDDLE)
+              }}
+            >
+              до 1000 рублей
+            </Button>
+            <Button
+              variant="outline-primary"
+              onClick={() => {
+                setFilterPrice(EXPENSIVE)
+              }}
+            >
+              до 2000 рублей
+            </Button>
           </div>
         </div>
       </div>
@@ -72,7 +130,13 @@ const Filter = ({filterAllValue}) => {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  filterAllValue: filterValue => dispatch(filterAllValue(filterValue))
-})
-export default connect(null, mapDispatchToProps)(Filter)
+// const mapDispatchToProps = dispatch => ({
+//   filterAllValue: filterValue => dispatch(filterAllValue(filterValue)),
+// })
+
+export default connect(null, {
+  setFilterAll,
+  setFilterGender,
+  setFilterType,
+  setFilterPrice
+})(Filter)
