@@ -6,7 +6,9 @@ const List = ({ id, title, description, img, handleShow }) => {
   return (
     <div className="list">
       <Card bsPrefix="list__item">
+        <div className="list__wrapper">
         <Card.Img src={img} bsPrefix="list__img" />
+        </div>
         <Card.Body bsPrefix="list__body">
           <Card.Title>{title}</Card.Title>
           <Card.Text>{description}</Card.Text>

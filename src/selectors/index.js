@@ -1,6 +1,13 @@
 export const getFilteredValue = state => {
   const { list, filter } = state
-  const { filterValue, filterByGender, filterByType, filterByPrice } = filter
+  const {
+    filterValue,
+    filterByGender,
+    filterByType,
+    filterByPrice,
+    pageSize,
+    currentPage
+  } = filter
 
   const checkValue = item => {
     if (!filterValue) return true
@@ -33,11 +40,24 @@ export const getFilteredValue = state => {
     return item.price < filterByPrice
   }
 
-  return list.filter(
-    item =>
-      checkValue(item) &&
-      checkGender(item) &&
-      checkType(item) &&
-      checkPrice(item)
-  )
+  return [
+    ...list
+      .filter(
+        item =>
+          checkValue(item) &&
+          checkGender(item) &&
+          checkType(item) &&
+          checkPrice(item)
+      )
+      .slice(currentPage * pageSize - pageSize, currentPage * pageSize)
+  ]
 }
+
+// export const getListPage = state => {
+//   const { list, pages } = state
+//   const { pageSize, currentPage } = pages
+
+//   return [
+//     ...list.slice(currentPage * pageSize - pageSize, currentPage * pageSize)
+//   ]
+// }

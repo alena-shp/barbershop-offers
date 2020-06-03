@@ -1,4 +1,4 @@
-import { getFilteredValue } from './index'
+import { getFilteredValue } from '.'
 
 // list: [
 //     {
@@ -85,7 +85,9 @@ it('filter empty', () => {
       filterValue: '',
       filterByGender: null,
       filterByType: null,
-      filterByPrice: null
+      filterByPrice: null,
+      pageSize: 5,
+      currentPage: 1
     },
     list: []
   }
@@ -100,7 +102,9 @@ it('filter filterValue', () => {
       filterValue: 'женс',
       filterByGender: null,
       filterByType: null,
-      filterByPrice: null
+      filterByPrice: null,
+      pageSize: 5,
+      currentPage: 1
     },
     list: [
       {
@@ -143,7 +147,9 @@ it('filter filterByGender', () => {
       filterValue: '',
       filterByGender: 'мужской',
       filterByType: null,
-      filterByPrice: null
+      filterByPrice: null,
+      pageSize: 5,
+      currentPage: 1
     },
     list: [
       {
@@ -185,7 +191,9 @@ it('filter filterByType', () => {
       filterValue: '',
       filterByGender: null,
       filterByType: 'уход',
-      filterByPrice: null
+      filterByPrice: null,
+      pageSize: 5,
+      currentPage: 1
     },
     list: [
       {
@@ -227,7 +235,9 @@ it('filter filterByPrice', () => {
       filterValue: '',
       filterByGender: null,
       filterByType: null,
-      filterByPrice: 500
+      filterByPrice: 500,
+      pageSize: 5,
+      currentPage: 1
     },
     list: [
       {
@@ -269,7 +279,9 @@ it('filter filterByGender & filterByType', () => {
       filterValue: '',
       filterByGender: 'мужской',
       filterByType: 'уход',
-      filterByPrice: null
+      filterByPrice: null,
+      pageSize: 5,
+      currentPage: 1
     },
     list: [
       {
@@ -311,7 +323,9 @@ it('filter filterByType & filterByPrice', () => {
       filterValue: '',
       filterByGender: null,
       filterByType: 'уход',
-      filterByPrice: 500
+      filterByPrice: 500,
+      pageSize: 5,
+      currentPage: 1
     },
     list: [
       {

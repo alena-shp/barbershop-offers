@@ -3,7 +3,8 @@ import {
   SET_FILTER_GENDER,
   SET_FILTER_TYPE,
   SET_FILTER_PRICE,
-  CLEAR_FILTRES
+  CLEAR_FILTRES,
+  SET_CURRENT_PAGE
 } from '../types'
 
 export const setFilterAll = filterValue => ({
@@ -28,4 +29,9 @@ export const setFilterPrice = filterPrice => ({
 
 export const clearFilters = () => ({
   type: CLEAR_FILTRES
+})
+
+export const setCurrentPage = currentPage => ({
+  type: SET_CURRENT_PAGE,
+  payload: currentPage
 })

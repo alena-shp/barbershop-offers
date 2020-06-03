@@ -6,8 +6,10 @@ import Details from './components/details'
 import Filter from './components/filter'
 import { listLoad } from './actions/list'
 import { getFilteredValue } from './selectors'
+import PaginationItem from './components/pagination'
 
 const App = ({ listLoad, listData, filteredValue }) => {
+  console.log('filteredValue', filteredValue)
   const [show, setShow] = useState(false)
   const [idModal, setIdModal] = useState()
   const handleClose = () => setShow(false)
@@ -24,6 +26,7 @@ const App = ({ listLoad, listData, filteredValue }) => {
   return (
     <div className="app">
       <Filter />
+
       {filteredValue &&
         filteredValue.map(({ id, title, description, img }) => {
           return (
@@ -38,12 +41,14 @@ const App = ({ listLoad, listData, filteredValue }) => {
             </div>
           )
         })}
+
       <Details
         idModal={idModal}
         handleClose={handleClose}
         show={show}
         dataDetails={listData[idModal]}
       />
+      <PaginationItem />
     </div>
   )
 }
