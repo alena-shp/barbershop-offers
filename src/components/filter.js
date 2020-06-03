@@ -19,6 +19,9 @@ const MIDDLE = 1000
 const EXPENSIVE = 2000
 
 const Filter = ({
+  filterByGender,
+  filterByType,
+  filterByPrice,
   setFilterAll,
   setFilterGender,
   setFilterType,
@@ -50,6 +53,7 @@ const Filter = ({
           <h3 className="filter__items-title">Пол</h3>
           <div className="filter__item-point">
             <Button
+              active={filterByGender === MALE}
               variant="outline-success"
               onClick={() => {
                 setFilterGender(MALE)
@@ -58,6 +62,7 @@ const Filter = ({
               Мужской
             </Button>
             <Button
+              active={filterByGender === FEMALE}
               variant="outline-success"
               onClick={() => {
                 setFilterGender(FEMALE)
@@ -71,6 +76,7 @@ const Filter = ({
           <h3 className="filter__items-title">Тип услуги</h3>
           <div className="filter__item-point">
             <Button
+              active={filterByType === HAIRSTYLE}
               variant="outline-danger"
               onClick={() => {
                 setFilterType(HAIRSTYLE)
@@ -79,6 +85,7 @@ const Filter = ({
               Стрижки
             </Button>
             <Button
+              active={filterByType === STYLING}
               variant="outline-danger"
               onClick={() => {
                 setFilterType(STYLING)
@@ -87,6 +94,7 @@ const Filter = ({
               Стайлинг
             </Button>
             <Button
+              active={filterByType === CARE}
               variant="outline-danger"
               onClick={() => {
                 setFilterType(CARE)
@@ -100,6 +108,7 @@ const Filter = ({
           <h3 className="filter__items-title">Цена</h3>
           <div className="filter__item-point">
             <Button
+              active={filterByPrice === CHEAP}
               variant="outline-primary"
               onClick={() => {
                 setFilterPrice(CHEAP)
@@ -108,6 +117,7 @@ const Filter = ({
               до 500 рублей
             </Button>
             <Button
+              active={filterByPrice === MIDDLE}
               variant="outline-primary"
               onClick={() => {
                 setFilterPrice(MIDDLE)
@@ -116,6 +126,7 @@ const Filter = ({
               до 1000 рублей
             </Button>
             <Button
+              active={filterByPrice === EXPENSIVE}
               variant="outline-primary"
               onClick={() => {
                 setFilterPrice(EXPENSIVE)
@@ -130,11 +141,13 @@ const Filter = ({
   )
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   filterAllValue: filterValue => dispatch(filterAllValue(filterValue)),
-// })
+const mapStateToProps = ({ filter }) => ({
+  filterByGender: filter.filterByGender,
+  filterByType: filter.filterByType,
+  filterByPrice: filter.filterByPrice
+})
 
-export default connect(null, {
+export default connect(mapStateToProps, {
   setFilterAll,
   setFilterGender,
   setFilterType,
