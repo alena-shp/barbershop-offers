@@ -2,7 +2,8 @@ import {
   SET_FILTER_VALUE,
   SET_FILTER_GENDER,
   SET_FILTER_TYPE,
-  SET_FILTER_PRICE
+  SET_FILTER_PRICE,
+  CLEAR_FILTRES
 } from '../types'
 
 const initialFilterState = {
@@ -33,6 +34,13 @@ const filterReducer = (state = initialFilterState, action) => {
       return {
         ...state,
         filterByPrice: action.payload
+      }
+    case CLEAR_FILTRES:
+      return {
+        filterValue: '',
+        filterByGender: null,
+        filterByType: null,
+        filterByPrice: null
       }
     default:
       return state

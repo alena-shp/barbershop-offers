@@ -6,7 +6,8 @@ import {
   setFilterAll,
   setFilterGender,
   setFilterType,
-  setFilterPrice
+  setFilterPrice,
+  clearFilters
 } from './../actions/filter'
 
 const MALE = 'мужской'
@@ -25,7 +26,8 @@ const Filter = ({
   setFilterAll,
   setFilterGender,
   setFilterType,
-  setFilterPrice
+  setFilterPrice,
+  clearFilters
 }) => {
   const [filterValue, setFilterValue] = useState('')
 
@@ -136,6 +138,14 @@ const Filter = ({
             </Button>
           </div>
         </div>
+        <Button
+          variant="secondary"
+          onClick={() => {
+            clearFilters()
+          }}
+        >
+          Сбросить все фильтры
+        </Button>
       </div>
     </div>
   )
@@ -151,5 +161,6 @@ export default connect(mapStateToProps, {
   setFilterAll,
   setFilterGender,
   setFilterType,
-  setFilterPrice
+  setFilterPrice,
+  clearFilters
 })(Filter)
