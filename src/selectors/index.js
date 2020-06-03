@@ -52,12 +52,3 @@ export const getFilteredValue = state => {
       .slice(currentPage * pageSize - pageSize, currentPage * pageSize)
   ]
 }
-
-// export const getListPage = state => {
-//   const { list, pages } = state
-//   const { pageSize, currentPage } = pages
-
-//   return [
-//     ...list.slice(currentPage * pageSize - pageSize, currentPage * pageSize)
-//   ]
-// }

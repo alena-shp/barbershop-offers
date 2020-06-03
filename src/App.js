@@ -9,7 +9,6 @@ import { getFilteredValue } from './selectors'
 import PaginationItem from './components/pagination'
 
 const App = ({ listLoad, listData, filteredValue }) => {
-  console.log('filteredValue', filteredValue)
   const [show, setShow] = useState(false)
   const [idModal, setIdModal] = useState()
   const handleClose = () => setShow(false)
@@ -26,8 +25,13 @@ const App = ({ listLoad, listData, filteredValue }) => {
   return (
     <div className="app">
       <Filter />
-
-      {filteredValue &&
+      {filteredValue.length < 5 ? (
+        <div className="app__notice">
+          Список услуг закончился. <br />
+          Вы можете уточнить данные по услугам у менеждера заведения
+        </div>
+      ) : (
+        filteredValue &&
         filteredValue.map(({ id, title, description, img }) => {
           return (
             <div key={id}>
@@ -40,8 +44,8 @@ const App = ({ listLoad, listData, filteredValue }) => {
               />
             </div>
           )
-        })}
-
+        })
+      )}
       <Details
         idModal={idModal}
         handleClose={handleClose}
@@ -55,6 +59,7 @@ const App = ({ listLoad, listData, filteredValue }) => {
 
 const mapStateToProps = state => ({
   listData: state.list,
+
   filteredValue: getFilteredValue(state)
 })
 

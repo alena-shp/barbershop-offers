@@ -4,6 +4,12 @@
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
+
+  &__notice {
+    font-size: 20px;
+    margin: 40px auto 40px;
+    text-align: center;
+  }
 }
 .list {
   &__item {
