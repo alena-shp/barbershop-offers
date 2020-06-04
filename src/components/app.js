@@ -1,34 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import './App.scss'
-import List from './components/list'
-import Details from './components/details'
-import Filter from './components/filter'
-import { listLoad } from './actions/list'
-import { getFilteredValue } from './selectors'
-import PaginationItem from './components/pagination'
+import React from 'react'
+import './../style.scss'
+import List from './list'
+import Details from './details'
+import FilterContainer from './../containers/filter'
+import PaginationItem from './pagination'
 
-const App = ({ listLoad, pageSize, listData, totalItem, currentPage }) => {
-  let countPage = Math.ceil(totalItem.length / pageSize)
-
-  let listItem = totalItem.slice(
-    currentPage * pageSize - pageSize,
-    currentPage * pageSize
-  )
-
-  const [show, setShow] = useState(false)
-  const [idModal, setIdModal] = useState()
-  const handleClose = () => setShow(false)
-
-  const handleShow = id => {
-    setShow(true)
-    setIdModal(id)
-  }
-
-  useEffect(() => {
-    listLoad()
-  }, [listLoad])
-
+const App = ({
+  listData,
+  countPage,
+  currentPage,
+  totalItem,
+  listItem,
+  show,
+  idModal,
+  handleClose,
+  handleShow
+}) => {
   const notice =
     countPage === currentPage ? (
       <div className="app__notice">
@@ -40,8 +27,8 @@ const App = ({ listLoad, pageSize, listData, totalItem, currentPage }) => {
   return (
     <div className="app">
       <h1 className="app__title">Услуги парикмахерской</h1>
-      <Filter />
-      {totalItem.length === 0 ? (
+      <FilterContainer />
+      {listData.length === 0 ? (
         <p className="app__loading">Подождите...</p>
       ) : listItem.length < 0 ? (
         <div className="app__notice">
@@ -76,11 +63,4 @@ const App = ({ listLoad, pageSize, listData, totalItem, currentPage }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  listData: state.list,
-  currentPage: state.filter.currentPage,
-  pageSize: state.filter.pageSize,
-  totalItem: getFilteredValue(state)
-})
-
-export default connect(mapStateToProps, { listLoad })(App)
+export default App

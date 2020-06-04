@@ -1,6 +1,7 @@
 import React from 'react'
+import './../style.scss'
 import { Button, Card } from 'react-bootstrap'
-import './../App.scss'
+
 
 const List = ({ id, title, description, img, handleShow }) => {
   return (

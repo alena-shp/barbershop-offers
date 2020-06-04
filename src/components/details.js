@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Modal } from 'react-bootstrap'
-import './../App.scss'
+import './../style.scss'
 
 const Details = ({ dataDetails = [], show, handleClose }) => {
   const { gender = [], price, type } = dataDetails

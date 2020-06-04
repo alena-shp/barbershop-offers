@@ -1,14 +1,6 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import './../style.scss'
 import { Form, Button } from 'react-bootstrap'
-import './../App.scss'
-import {
-  setFilterAll,
-  setFilterGender,
-  setFilterType,
-  setFilterPrice,
-  clearFilters
-} from './../actions/filter'
 
 const MALE = 'мужской'
 const FEMALE = 'женский'
@@ -23,20 +15,13 @@ const Filter = ({
   filterByGender,
   filterByType,
   filterByPrice,
-  setFilterAll,
   setFilterGender,
   setFilterType,
   setFilterPrice,
-  clearFilters
+  clearFilters,
+  filterValue,
+  onChangeValue
 }) => {
-  const [filterValue, setFilterValue] = useState('')
-
-  const onChangeValue = e => {
-    const filterValue = e.target.value
-    setFilterValue(filterValue)
-    setFilterAll(filterValue)
-  }
-
   return (
     <div className="filter">
       <Form.Control
@@ -159,16 +144,4 @@ const Filter = ({
   )
 }
 
-const mapStateToProps = ({ filter }) => ({
-  filterByGender: filter.filterByGender,
-  filterByType: filter.filterByType,
-  filterByPrice: filter.filterByPrice
-})
-
-export default connect(mapStateToProps, {
-  setFilterAll,
-  setFilterGender,
-  setFilterType,
-  setFilterPrice,
-  clearFilters
-})(Filter)
+export default Filter
