@@ -39,20 +39,18 @@ const Filter = ({
 
   return (
     <div className="filter">
-      <Form className="filter__input">
-        <Form.Control
-          type="text"
-          size="lg"
-          custom="true"
-          placeholder="найти"
-          value={filterValue}
-          onChange={onChangeValue}
-        />
-      </Form>
+      <Form.Control
+        type="text"
+        bsCustomPrefix="filter__input"
+        custom="true"
+        placeholder="Введите текст для поиска..."
+        value={filterValue}
+        onChange={onChangeValue}
+      />
       <div className="filter__value">
         <h1 className="filter__value-title">Быстрый поиск по категориям</h1>
         <div className="filter__item">
-          <h3 className="filter__items-title">Пол</h3>
+          <h3 className="filter__item-title">Пол</h3>
           <div className="filter__item-point">
             <Button
               active={filterByGender === MALE}
@@ -63,6 +61,8 @@ const Filter = ({
             >
               Мужской
             </Button>
+          </div>
+          <div className="filter__item-point">
             <Button
               active={filterByGender === FEMALE}
               variant="outline-success"
@@ -75,7 +75,7 @@ const Filter = ({
           </div>
         </div>
         <div className="filter__item">
-          <h3 className="filter__items-title">Тип услуги</h3>
+          <h3 className="filter__item-title">Тип услуги</h3>
           <div className="filter__item-point">
             <Button
               active={filterByType === HAIRSTYLE}
@@ -86,6 +86,8 @@ const Filter = ({
             >
               Стрижки
             </Button>
+          </div>
+          <div className="filter__item-point">
             <Button
               active={filterByType === STYLING}
               variant="outline-danger"
@@ -95,6 +97,8 @@ const Filter = ({
             >
               Стайлинг
             </Button>
+          </div>
+          <div className="filter__item-point">
             <Button
               active={filterByType === CARE}
               variant="outline-danger"
@@ -107,7 +111,7 @@ const Filter = ({
           </div>
         </div>
         <div className="filter__item">
-          <h3 className="filter__items-title">Цена</h3>
+          <h3 className="filter__item-title">Цена</h3>
           <div className="filter__item-point">
             <Button
               active={filterByPrice === CHEAP}
@@ -118,6 +122,8 @@ const Filter = ({
             >
               до 500 рублей
             </Button>
+          </div>
+          <div className="filter__item-point">
             <Button
               active={filterByPrice === MIDDLE}
               variant="outline-primary"
@@ -127,6 +133,8 @@ const Filter = ({
             >
               до 1000 рублей
             </Button>
+          </div>
+          <div className="filter__item-point">
             <Button
               active={filterByPrice === EXPENSIVE}
               variant="outline-primary"

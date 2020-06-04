@@ -5,7 +5,7 @@ import './../App.scss'
 const List = ({ id, title, description, img, handleShow }) => {
   return (
     <div className="list">
-      <Card bsPrefix="list__item">
+      <Card bsPrefix="list__item" className="text-center">
         <div className="list__wrapper">
         <Card.Img src={img} bsPrefix="list__img" />
         </div>

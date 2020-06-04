@@ -39,16 +39,13 @@ export const getFilteredValue = state => {
 
     return item.price < filterByPrice
   }
+  const totalItem = list.filter(
+    item =>
+      checkValue(item) &&
+      checkGender(item) &&
+      checkType(item) &&
+      checkPrice(item)
+  )
 
-  return [
-    ...list
-      .filter(
-        item =>
-          checkValue(item) &&
-          checkGender(item) &&
-          checkType(item) &&
-          checkPrice(item)
-      )
-      .slice(currentPage * pageSize - pageSize, currentPage * pageSize)
-  ]
+  return totalItem
 }

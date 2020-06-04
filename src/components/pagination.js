@@ -4,10 +4,15 @@ import { Pagination } from 'react-bootstrap'
 import './../App.scss'
 import { setCurrentPage } from './../actions/filter'
 
-const PaginationItem = ({ pageSize, currentPage, setCurrentPage }) => {
+const PaginationItem = ({
+  countPage,
+  currentPage,
+  setCurrentPage
+}) => {
   let active = currentPage
+
   let items = []
-  for (let number = 1; number <= pageSize; number++) {
+  for (let number = 1; number <= countPage; number++) {
     items.push(
       <Pagination.Item
         key={number}
@@ -22,9 +27,8 @@ const PaginationItem = ({ pageSize, currentPage, setCurrentPage }) => {
   return <Pagination>{items}</Pagination>
 }
 
-const mapStateToProps = ({ filter }) => ({
-  pageSize: filter.pageSize,
-  currentPage: filter.currentPage
+const mapStateToProps = state => ({
+  currentPage: state.filter.currentPage
 })
 
 export default connect(mapStateToProps, { setCurrentPage })(PaginationItem)
