@@ -4,11 +4,7 @@ import { Pagination } from 'react-bootstrap'
 import './../App.scss'
 import { setCurrentPage } from './../actions/filter'
 
-const PaginationItem = ({
-  countPage,
-  currentPage,
-  setCurrentPage
-}) => {
+const PaginationItem = ({ countPage, currentPage, setCurrentPage }) => {
   let active = currentPage
 
   let items = []
@@ -24,7 +20,11 @@ const PaginationItem = ({
     )
   }
 
-  return <Pagination>{items}</Pagination>
+  return (
+    <div className="pagination-item">
+      <Pagination>{items}</Pagination>
+    </div>
+  )
 }
 
 const mapStateToProps = state => ({

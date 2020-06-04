@@ -4,20 +4,18 @@ import './../App.scss'
 
 const List = ({ id, title, description, img, handleShow }) => {
   return (
-    <div className="list">
-      <Card bsPrefix="list__item" className="text-center">
-        <div className="list__wrapper">
+    <Card bsPrefix="list__item" className="text-center">
+      <div className="list__wrapper">
         <Card.Img src={img} bsPrefix="list__img" />
-        </div>
-        <Card.Body bsPrefix="list__body">
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>{description}</Card.Text>
-          <Button variant="primary" onClick={() => handleShow(id)}>
-            Подробнее
-          </Button>
-        </Card.Body>
-      </Card>
-    </div>
+      </div>
+      <Card.Body bsPrefix="list__body">
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        <Button variant="primary" onClick={() => handleShow(id)}>
+          Подробнее
+        </Button>
+      </Card.Body>
+    </Card>
   )
 }
 

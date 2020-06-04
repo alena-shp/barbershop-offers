@@ -10,16 +10,16 @@ const Details = ({ dataDetails = [], show, handleClose }) => {
         <Modal.Title>Детальная информация</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <div>
-          <h3>Цена</h3>
+        <div className="details__info">
+          <h3 className="details__info-title">Цена</h3>
           {price}
         </div>
-        <div>
-          <h3>Тип услуги</h3>
+        <div className="details__info">
+          <h3 className="details__info-title">Тип услуги</h3>
           {type}
         </div>
-        <div>
-          <h3>Пол</h3>
+        <div className="details__info">
+          <h3 className="details__info-title">Пол</h3>
           {gender.map(e => (
             <p key={e}>{e}</p>
           ))}

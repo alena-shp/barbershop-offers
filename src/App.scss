@@ -10,6 +10,10 @@
     margin: 20px 0 40px;
   }
 
+  &__list {
+    margin: 40px 0 40px;
+  }
+
   &__notice,
   &__loading {
     font-size: 20px;
@@ -21,7 +25,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 0 40px;
+  margin: 0 40px 40px;
 
   &__input {
     width: 100%;
@@ -77,5 +81,25 @@
 
   &__body {
     flex-basis: 50%;
+  }
+}
+.pagination-item {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.details__info {
+  color: gray;
+  font-size: 20px;
+  margin-bottom: 16px;
+
+  &-title {
+    color: black;
+    font-size: 20px;
+    margin: 0;
+  }
+  p {
+    margin: 0;
   }
 }

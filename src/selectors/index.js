@@ -1,13 +1,6 @@
 export const getFilteredValue = state => {
   const { list, filter } = state
-  const {
-    filterValue,
-    filterByGender,
-    filterByType,
-    filterByPrice,
-    pageSize,
-    currentPage
-  } = filter
+  const { filterValue, filterByGender, filterByType, filterByPrice } = filter
 
   const checkValue = item => {
     if (!filterValue) return true
@@ -24,7 +17,7 @@ export const getFilteredValue = state => {
 
     return (
       item.gender &&
-      item.gender.some(gender => gender.toLowerCase() === filterByGender)
+      item.gender.some(gender => gender === filterByGender)
     )
   }
 
