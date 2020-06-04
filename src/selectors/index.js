@@ -15,10 +15,7 @@ export const getFilteredValue = state => {
   const checkGender = item => {
     if (!filterByGender) return true
 
-    return (
-      item.gender &&
-      item.gender.some(gender => gender === filterByGender)
-    )
+    return item.gender && item.gender.some(gender => gender === filterByGender)
   }
 
   const checkType = item => {

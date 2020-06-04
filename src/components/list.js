@@ -2,7 +2,6 @@ import React from 'react'
 import './../style.scss'
 import { Button, Card } from 'react-bootstrap'
 
-
 const List = ({ id, title, description, img, handleShow }) => {
   return (
     <Card bsPrefix="list__item" className="text-center">

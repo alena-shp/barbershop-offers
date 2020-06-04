@@ -1,6 +1,4 @@
-import {
-  LIST_LOAD
-} from '../types'
+import { LIST_LOAD } from '../types'
 
 const listReducer = (state = [], action) => {
   switch (action.type) {

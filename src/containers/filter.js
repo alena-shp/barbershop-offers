@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import Filter from "./../components/filter"
+import Filter from './../components/filter'
 
 import {
   setFilterAll,
@@ -28,17 +28,20 @@ const FilterContainer = ({
     setFilterAll(filterValue)
   }
 
-  return <Filter filterByGender={filterByGender}
-  filterByType={filterByType}
-  filterByPrice={filterByPrice}
-  setFilterAll={setFilterAll}
-  setFilterGender={setFilterGender}
-  setFilterType={setFilterType}
-  setFilterPrice={setFilterPrice}
-  clearFilters={clearFilters}
-  filterValue={filterValue}
-  onChangeValue={onChangeValue}
-  />
+  return (
+    <Filter
+      filterByGender={filterByGender}
+      filterByType={filterByType}
+      filterByPrice={filterByPrice}
+      setFilterAll={setFilterAll}
+      setFilterGender={setFilterGender}
+      setFilterType={setFilterType}
+      setFilterPrice={setFilterPrice}
+      clearFilters={clearFilters}
+      filterValue={filterValue}
+      onChangeValue={onChangeValue}
+    />
+  )
 }
 
 const mapStateToProps = ({ filter }) => ({

@@ -11,7 +11,6 @@ const AppContainer = ({
   totalItem,
   currentPage
 }) => {
-  
   let countPage = Math.ceil(totalItem.length / pageSize)
 
   let listItem = totalItem.slice(
